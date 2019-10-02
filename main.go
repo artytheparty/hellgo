@@ -4,9 +4,14 @@ import "fmt"
 
 func main() {
 	var locale, greeting string
-	var languages = [4]string{"en", "es", "de", "fr"}
-	locale = languages[1]
 
+	/*
+		var languages = [4]string{"en", "es", "de", "fr"}
+		locale = languages[1]
+	*/
+
+	fmt.Println("Enter language code:")
+	fmt.Scanf("%s", &locale)
 	/*
 		if locale == "en" {
 			greeting = "Hello"
