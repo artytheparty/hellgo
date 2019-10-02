@@ -1,41 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	var locale, greeting string
+	var locale string
+	var translations = make(map[string]string)
+	translations["en"] = "Hello"
+	translations["de"] = "Guten tag"
+	translations["fr"] = "Bonjour"
 
-	/*
-		var languages = [4]string{"en", "es", "de", "fr"}
-		locale = languages[1]
-	*/
-
-	fmt.Println("Enter language code:")
-	fmt.Scanf("%s", &locale)
-	/*
-		if locale == "en" {
-			greeting = "Hello"
-		} else if locale == "es" {
-			greeting = "Hola"
-		} else if locale == "de" {
-			greeting = "Guten Tag"
-		} else {
-			greeting = "Yo"
-		}
-	*/
-
-	switch locale {
-	case "en":
-		greeting = "Hello"
-	case "es":
-		greeting = "Hola"
-	case "de":
-		greeting = "Guten Tag"
-	case "fr":
-		greeting = "Bonjour"
-	default:
-		greeting = "Yo"
+	if len(os.Args) == 1 {
+		fmt.Println("Enter language code:")
+		fmt.Scanf("%s", &locale)
+	} else {
+		locale = os.Args[1]
 	}
 
-	fmt.Printf(greeting + ", Go!\n")
+	output := translations[locale]
+	if output == "" {
+		output = "Yo"
+	}
+
+	fmt.Println(output, "Go!")
 }
