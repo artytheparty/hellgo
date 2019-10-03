@@ -13,6 +13,7 @@ func main() {
 	translations["de"] = "Guten tag"
 	translations["fr"] = "Bonjour"
 	translations["hi"] = "Namaste"
+	translations["it"] = "Italian"
 
 	locale := argswitch(os.Args)
 	output := translate(locale)
